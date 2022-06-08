@@ -1,6 +1,6 @@
 ## idea about thread ctl
 
-###run.sh
+### run.sh
 command=python /tmp/lola/src/main.py -c /tmp/conf/mpki_test_server.conf -s 
 
 ### argparse way1
@@ -9,7 +9,7 @@ parser = argparse.ArgumentParser(prog='ctl_thread', description='ctl cmd',
 formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 parser.add_argument("-c", "--cmdconf", type=str, help="issuing file context",
                     default='/tmp/conf/ctl_thread.conf')
-###ctl_thread.conf
+### ctl_thread.conf
 [issuing file context]
 thread_status = stop
 
@@ -23,17 +23,17 @@ parser.add_argument("-o", "--stop", type=str, help="thread status ctl 2",
 
 
 ### Invoking argparse
-#####way1
+##### way1
     args = parser.parse_args()
     ctl_status = str(args.cmdconf).split('/')[-1]
     cmd = status
     ctl_func = CtlClass(status=ctl_status)
-######way2
+###### way2
     args = parser.parse_args()
     ctl_func = CtlClass(status=args.stop)
                                                
 
-###thread ctl
+### thread ctl
 [python - How to start and stop thread? - Stack Overflow](https://stackoverflow.com/questions/15729498/how-to-start-and-stop-thread)
 
 >import threading
